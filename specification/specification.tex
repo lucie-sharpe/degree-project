@@ -15,8 +15,8 @@
 \makeatletter
 \fancypagestyle{plain}{
 	\fancyhf{}
-	\fancyhead[R]{\textit{\@title} - \textit{\@assignment}}
-    \fancyhead[L]{\textit{\@author}}
+	%\fancyhead[R]{\textit{\@title} - \textit{\@assignment}}
+    %\fancyhead[L]{\textit{\@author}}
     \fancyfoot[C]{\thepage}
 }
 \makeatother
@@ -30,11 +30,21 @@
 \pagestyle{plain}
 
 \section{Introduction}
+Many matrix operations involve computing many simpler calculations on the components of the matrix. These calculations are often independant and can be performed in parralel. A processor would compute these sequentaly but a specific harware implementation would be able to compute them in parralell. Adding hardware based matrix operations to a processor instruction set would allow programs to reduce the number of cycles needed to get the result and so reduce the time taken. As the average clock speed of CPUs has seen very little increase since the early 2000s moving more complicated operations to hardware allows for run time to decrease without decreasing cycle time.
 
-% \input{introduction.tex}
-% \input{background.tex}
-% \input{progress.tex}
-% \input{project-management.tex}
+The aim of this project is to develop hardware that can perform matrix operations and integrate that into the instructions of a RISK-V processor to allow improvement in run time of matrix heavy programs.
+
+\section{Background}
+\subsection{FPGAs}
+As this project will use a hardware implementation, a platform is needed that can allow fast development and interations on hardware designs. An FPGA is a semiconductor based arround a matrix of configurable logic blocks.\citep{whatisanfpga}
+
+\subsection{RISK-V and Rocket Chip}
+
+\subsection{Matrix Operations}
+
+\section{Objectives}
+
+\section{Project Managment}
 
 \bibliographystyle{../common/plainnat}
 \bibliography{../common/bibliography}
