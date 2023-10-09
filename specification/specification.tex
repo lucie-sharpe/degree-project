@@ -39,8 +39,12 @@
 	As this project will use a hardware implementation, a platform is needed that can allow fast development and iterations on hardware designs. An FPGA (Field Programmable Gate Array) is a semiconductor device based around a matrix of configurable logic blocks \citep{whatisanfpga}. The user can define what logic function these blocks perform and how they are connected using HDL (Hardware Description Language) programming. Hardware can be designed in HDL and constructed on the FPGA without needing to manually build the circuit.
 	
 	\subsection{Matrix Operations}
+	There are four basic operations with matricies, addition, scalar multiplication, transposition and matrix multiplication. Each element of the result matricies of these functions can be independently calculated allowing for paralellism. In order to fully utalise this all elemnts of the input matricies must be accessable simultainus which limits the scalability of the size of input matrix the design can handle.
 	
-	\subsection{RISK-V and Rocket Chip}
+	\subsection{RISK-V, Rocket Chip and Chisel}
+	For this project a processor is needed to intergrate the matrix accelerator into. RISC-V is an open standerd instruction set architecture that can be implemented in a veriaty of devices such as high-performance boards by SiFive and smaller microcrontrolers such as Espressif's ESP32-C3. This adoption means that more software is available for the RISC-V instruction such as Debian's risk64 port. To implement a RISC-V core on an FPGA the Rocket Chip Generator will be used. This is an open-source SoC generator that produces synthesizable RTL for implemntation on an FPGA. It also allows for intergration of custom accelerators as instruction set extentions \citep{rocketchip} which is needed for this project.
+	
+	Rocket Chip uses the Chisle HDL based on the Scala programming language. This allows for modern programming features to be used and then generate Verilog from this code. The Verilog code can then be synthasised for an FPGA.
 	
 	\section{Objectives}
 	\subsection{Hardware-Based Matrix Operations}
