@@ -48,8 +48,22 @@
 	
 	\section{Objectives}
 	\subsection{Hardware-Based Matrix Operations}
+	\begin{enumerate}
+		\item [Must]  Design and implement matrix multiplication hardware that can calculate results more efficiently than software. It should work for matrices containing integers and should be able to scale to larger matrecies.
+		\item [Could] Add addition and scalar multiplication functions to the design.
+		\item [Could] Add support for floating point values to the design.
+	\end{enumerate}
 	\subsection{Integration to RISC-V Core}
+	\begin{enumerate}
+		\item [Must] Generate a risc-v core and connect it to the matrix accelerator by adding new instructions to the cores instruction set.
+		\item [Must] Develop software to allow the use of the new instructions in programs.
+	\end{enumerate}
 	\subsection{Comparison of Hardware Solution Against Software}
+	\begin{enumerate}
+		\item [Must] Develop a program that can benchmark the use of matrix operations through software and the hardware accelerator. Run these tests and compare.
+		\item [Could] Also test and compare an implementation that uses software parallelism.
+		\item [Could] If other matrix functions implemented compare these to software and see if these extra functions are worth implementing.
+	\end{enumerate}
 	
 	\section{Methodology}
 	
