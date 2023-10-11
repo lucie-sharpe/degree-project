@@ -32,60 +32,68 @@
 	\section{Introduction}
 	Many matrix operations involve computing many simpler calculations on the components of the matrix. These calculations are often independent and can be performed in parallel. A processor would compute these sequentially but a specific hardware implementation would be able to compute them in parallel. Adding hardware-based matrix operations to a processor instruction set would allow programs to reduce the number of cycles needed to get the result and so reduce the time taken. As the average clock speed of CPUs has seen very little increase since the early 2000s moving more complicated operations to hardware allows for run time to decrease without decreasing cycle time.
 	
-	This project aims to develop hardware that can perform matrix operations and integrate that into the instructions of a RISK-V processor to allow improvement in the execution time of matrix heavy programs.
+	This project aims to develop hardware that can perform matrix operations and integrate that into the instructions of a RISK-V processor to improve the execution time of matrix-heavy programs.
 	
 	\section{Background}
 	\subsection{FPGAs}
 	As this project will use a hardware implementation, a platform is needed that can allow fast development and iterations on hardware designs. An FPGA (Field Programmable Gate Array) is a semiconductor device based around a matrix of configurable logic blocks \citep{whatisanfpga}. The user can define what logic function these blocks perform and how they are connected using HDL (Hardware Description Language) programming. Hardware can be designed in HDL and constructed on the FPGA without needing to manually build the circuit.
 	
 	\subsection{Matrix Operations}
-	There are four basic operations with matricies, addition, scalar multiplication, transposition and matrix multiplication. Each element of the result matricies of these functions can be independently calculated allowing for paralellism. In order to fully utalise this all elemnts of the input matricies must be accessable simultainus which limits the scalability of the size of input matrix the design can handle.
+	There are four basic operations with matrices, addition, scalar multiplication, transposition and matrix multiplication. Each element of the result matrices of these functions can be independently calculated allowing for parallelism. In order to fully utilise this all elements of the input matrices must be accessible simultaneous which limits the scalability of the input matrix size the design can handle.
 	
 	\subsection{RISK-V, Rocket Chip and Chisel}
-	For this project a processor is needed to intergrate the matrix accelerator into. RISC-V is an open standerd instruction set architecture that can be implemented in a veriaty of devices such as high-performance boards by SiFive and smaller microcrontrolers such as Espressif's ESP32-C3. This adoption means that more software is available for the RISC-V instruction such as Debian's risk64 port. To implement a RISC-V core on an FPGA the Rocket Chip Generator will be used. This is an open-source SoC generator that produces synthesizable RTL for implemntation on an FPGA. It also allows for intergration of custom accelerators as instruction set extentions \citep{rocketchip} which is needed for this project.
+	For this project, a processor is needed to integrate the matrix accelerator with. RISC-V is an open standard instruction set architecture that can be implemented in a variety of devices such as high-performance boards by SiFive and smaller microcontrollers such as Espressif's ESP32-C3. This adoption means that more software is available for the RISC-V instruction such as Debian's risk64 port. To implement a RISC-V core on an FPGA the Rocket Chip Generator will be used. This is an open-source SoC generator that produces synthesizable RTL for implementation on an FPGA. It also allows for the intergration of custom accelerators as instruction set extentions \citep{rocketchip} which is needed for this project.
 	
-	Rocket Chip uses the Chisle HDL based on the Scala programming language. This allows for modern programming features to be used and then generate Verilog from this code. The Verilog code can then be synthasised for an FPGA.
+	Rocket Chip uses the Chisel HDL based on the Scala programming language. This allows for modern programming features to be used and then generate Verilog from this code. The Verilog code can then be synthesised for an FPGA.
 	
 	\section{Objectives}
 	\subsection{Hardware-Based Matrix Operations}
 	\begin{enumerate}
-		\item [Must]  Design and implement matrix multiplication hardware that can calculate results more efficiently than software. It should work for matrices containing integers and should be able to scale to larger matrices.
-		\item [Could] Add addition and scalar multiplication functions to the design.
-		\item [Could] Add support for floating point values to the design.
+		\item [(Must)]  Design and implement matrix multiplication hardware that can calculate results more efficiently than software. It should work for matrices containing integers and should be able to scale to larger matrices.
+		\item [(Could)] Add addition and scalar multiplication functions to the design.
+		\item [(Could)] Add support for floating point values to the design.
 	\end{enumerate}
 	\subsection{Integration to RISC-V Core}
 	\begin{enumerate}
-		\item [Must] Generate a risc-v core and connect it to the matrix accelerator by adding new instructions to the cores instruction set.
-		\item [Must] Develop software to allow the use of the new instructions in programs.
+		\item [(Must)] Generate a RISC-V core and connect it to the matrix accelerator by adding new instructions to the cores instruction set.
+		\item [(Must)] Develop software to allow the use of the new instructions in programs.
 	\end{enumerate}
 	\subsection{Comparison of Hardware Solution Against Software}
 	\begin{enumerate}
-		\item [Must] Develop a program that can benchmark the use of matrix operations through software and the hardware accelerator. Run these tests and compare.
-		\item [Could] Also test and compare an implementation that uses software parallelism.
-		\item [Could] If other matrix functions implemented compare these to software and see if these extra functions are worth implementing.
+		\item [(Must)] Develop a program that can benchmark the use of matrix operations through software and the hardware accelerator. Run these tests and compare.
+		\item [(Could)] Test and compare an implementation that uses software parallelism.
+		\item [(Could)] If other matrix functions are implemented compare these to software and see if these extra functions are worth implementing.
 	\end{enumerate}
-	
+
+	\section{Literature Review}
+			
 	\section{Methodology}
 	
 	\section{Timeline}
-	Notes: Add deadlines
-	\begin{enumerate}
-		\item [Week] Task
-		\item [1-3]  Spec, Research matrix algorithms and Rocket Chip
-		\item [4-6]  Implement the matrix multiplication hardware
-		\item [TBD]  Test hardware in vivado and on FPGA
-		\item [TBD]  Generate and implement RISC-V core
-		\item [TBD]  Intergrate Accelerator into RISC-V core
-		\item [TBD]  Test and develop acceleator firmware
-		\item [TBD]  Research benchmark mathods for matrix operations
-		\item [TBD]  Develop benchmark software
-		\item [TBD]  Run Tests and generate data
-		\item [TBD]  Analyse results
-		\item [TBD]  Write Up
-	\end{enumerate}
+	The planned working hours are set out in the table below giving 12 hours a week. This may change depending on what is currently being worked on.
+	
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{c|c|c|c|c|c|}
+			\cline{2-6}
+			& 14:00 & 15:00 & 16:00 & 17:00 & 18:00 \\ \hline
+			\multicolumn{1}{|c|}{Monday}    &       &       &       &       &       \\ \hline
+			\multicolumn{1}{|c|}{Tuesday}   &       &       & X     & X     & X     \\ \hline
+			\multicolumn{1}{|c|}{Wednesday} &       & X     & X     & X     &       \\ \hline
+			\multicolumn{1}{|c|}{Thursday}  &       & X     & X     & X     &       \\ \hline
+			\multicolumn{1}{|c|}{Friday}    &       &       & X     & X     & X     \\ \hline
+		\end{tabular}
+	\end{table}
+
+	The Gantt chart below timetables the progress towards this project. This covers all objectives that must be completed and shows deadline submissions. Additional objectives such as adding extra functionality to the accelerator can be worked if the main objective is completed and there is still allocated time left.
+	
+	\begin{adjustwidth}{-\oddsidemargin-1in+1cm}{-\rightmargin}
+		\centering
+		\includegraphics[width=\paperwidth-2cm, frame]{./timeline.png}
+	\end{adjustwidth}
 	
 	\section{Resources}
-	This project will require hardware and software resources listed below as well as open source tools such as Rocket Chip.
+	This project will require hardware and software resources listed below as well as open-source tools such as Rocket Chip and Git.
 	\begin{enumerate}
 		\item \textbf{FPGA Development Board - Nexys A7} \newline
 		This board will be used to synthesise the HDL generated by this project. It is on loan from the School of Engineering.

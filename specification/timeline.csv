@@ -1,0 +1,27 @@
+"WBS #","Name / Title",Type,"Start Date","End Date","Estimated Hours","Actual Hours","Percent Complete",Resources,Predecessors,Notes,Comments,"Task Color"
+1,Project,project,2023-10-02,2024-04-30,0,0,0,,,,,
+1.1,Specification,group,2023-10-02,2023-10-12,0,0,0,,,,,
+1.1.1,Submission,milestone,2023-10-12,2023-10-12,0,0,0,,,,,blue2
+1.1.2,"Literature Review",task,2023-10-02,2023-10-06,0,0,0,,,,,yellow1
+1.1.3,"Write Spec",task,2023-10-07,2023-10-12,0,0,0,,,,,orange1
+1.2,Implementation,group,2023-10-13,2024-02-20,0,0,0,,,,,
+1.2.1,"Research Rocket Chip",task,2023-10-13,2023-10-17,0,0,0,,,,,yellow1
+1.2.2,"Research Matrix Algorithms",task,2023-10-18,2023-10-21,0,0,0,,,,,yellow1
+1.2.3,"Design and Test Matrix Hardware",task,2023-10-22,2023-11-07,0,0,0,,,,,blue3
+1.2.4,"Develop RISC-V core with Rocket Chip",task,2023-11-28,2023-12-17,0,0,0,,,,,blue3
+1.2.5,"Integrate Accelerator To RISC-V Core",task,2024-01-01,2024-01-23,0,0,0,,,,,blue3
+1.2.6,"Develop Interface Software",task,2024-01-24,2024-02-06,0,0,0,,,,,green3
+1.2.7,"Research and Develop Benchmarks",task,2024-02-07,2024-02-13,0,0,0,,,,,green3
+1.2.8,"Run Benchmarks and Analyse Data",task,2024-02-14,2024-02-20,0,0,0,,,,,green2
+1.3,"Progress Report",group,2023-11-08,2023-11-27,0,0,0,,,,,
+1.3.1,Submission,milestone,2023-11-27,2023-11-27,0,0,0,,,,,blue2
+1.3.2,"Write Progress Report",task,2023-11-08,2023-11-21,0,0,0,,,,,orange1
+1.3.3,"Polish Report and Spec",task,2023-11-22,2023-11-27,0,0,0,,,,,orange1
+1.4,Presentation,group,2024-02-21,2024-03-15,0,0,0,,,,,
+1.4.1,"Start Submission Date",milestone,2024-03-04,2024-03-04,0,0,0,,,,,blue2
+1.4.2,"Write Presentation",task,2024-02-21,2024-03-04,0,0,0,,,,,orange1
+1.4.3,"Improve Presentation",task,2024-03-05,2024-03-15,0,0,0,,,,,orange1
+1.5,Report,group,2024-03-16,2024-04-30,0,0,0,,,,,
+1.5.1,Submission,milestone,2024-04-30,2024-04-30,0,0,0,,,,,blue2
+1.5.2,"Write Report",task,2024-03-16,2024-04-16,0,0,0,,,,,orange1
+1.5.3,"Edit Report",task,2024-04-17,2024-04-30,0,0,0,,,,,orange1
