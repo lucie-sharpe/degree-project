@@ -113,10 +113,4 @@
 
 ## Using linux
 
-- I had issues installing programs with apt. Adding the following to `/etc/apt/sources.list` fixed it
-  
-  ```
-  deb [arch=riskv64] http://ftp.ports.debian.org/debian-ports unstable main
-  ```
-  
-  [Can not install pip · Issue #44 · eugene-tarassov/vivado-risc-v · GitHub](https://github.com/eugene-tarassov/vivado-risc-v/issues/44)
+- I had issues installing programs with apt.  This may be a solution:[Can not install pip · Issue #44 · eugene-tarassov/vivado-risc-v · GitHub](https://github.com/eugene-tarassov/vivado-risc-v/issues/44)
