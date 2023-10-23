@@ -35,3 +35,13 @@ https://warwick.ac.uk/fac/sci/dcs/teaching/material-archive/cs341/matrixmult09.p
 [CPU DB - Looking At 40 Years of Processor Improvements | A complete database of processors for researchers and hobbyists alike.](http://cpudb.stanford.edu/visualize/clock_frequency)
 
 [File:MatrixMultComplexity svg.svg - Wikipedia](https://en.wikipedia.org/wiki/File:MatrixMultComplexity_svg.svg)
+
+## AXI
+
+[Custom IP block](https://www.fpgadeveloper.com/2014/08/creating-a-custom-ip-block-in-vivado.html/)
+
+[Newer Custom IP block with AXI-Stream](https://www.fpgadeveloper.com/2017/11/creating-a-custom-axi-streaming-ip-in-vivado.html/)
+
+[Custom ip zybo](https://digilent.com/reference/learn/programmable-logic/tutorials/zybo-creating-custom-ip-cores/start?s[]=axi)
+
+[embedded systems guide](https://www.realdigital.org/course/embeddedsystem)
