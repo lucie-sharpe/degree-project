@@ -33,13 +33,19 @@
 \input{progress.tex}
 \input{project-management.tex}
 
-\newpage
+\appendix
 
-\section*{Glossary}
+\section{Project Specification}
+\input{spec.tex}
+
+\section{Glossary}
 \begin{enumerate}
 	\item [ FPGA - ] Field-Programmable Gate Array, an integrated circuit designed arround configurable logic blocks allowing for custom logic functions to be defined using HDL \cite{whatisanfpga}.
+	\item [ HPS - ] Hard Processor System, a physical processer that is not run on an FPGA.
 	\item [ LUT - ] Lookup Table, a digital memory element used in FPGAs to implement combinational logic.
 	\item [ HDL - ] Hardware Description Language, a language used to describe logic circuits.
+	\item [ IC - ] Integrated Circuit, a semiconductor based chip that perorms logic on electronic signals.
+	\item [ ASIC - ] Application-Specific Integrated Circuit, a custom designed IC for a specifc purpose.
 	\item [ RISC-V - ] An open standard instruction set for processors \cite{risc}.
 	\item [ APB - ] Advanced Peripheral Bus, a low-cost interface for peripheral devices \cite{APB}.
 	\item [ AXI - ]  Advanced eXtensible Interface, a protocol used to comunicate bettween the processor and IP blocks \cite{axi}.
