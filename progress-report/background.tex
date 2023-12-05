@@ -1,4 +1,13 @@
 \section{Background}
 \label{sec:background}
 
-Your literature review goes here. \citet{hughes1989functional} discusses the advantages of functional programming by exploring \emph{e.g.}\ lists, trees, and noughts and crosses in a functional programming language. 
+\subsection{Base project: vivado-risc-v}
+This project uses Rocket Chip to generate RISC-V processors that can be run on various FPGAs. It provides enough documentation to build a core and flash it to the board but very little else. There is some documentation on adding a peripheral device and making it available in Linux but I was unable to get this to work and further research into how to add to the device tree resulted in limited information. It provides an example bare-metal file that can be used as a base for new code but there was no documentation on it.
+
+\subsection{AXI protocol}
+The AXI4 protocol is used to communicate with custom IP blocks \cite{axi}. There are 3 interfaces AXI4, AXI4-Lite and AXI4-Stream. AXI4 provides high-performance memory-mapped communication and AXI4-Stream allows for high-speed streaming of data. For this project, AXI4-Lite will be used as it is a simpler interface for low-throughput memory-mapped communication. This will limit the performance of the accelerator but will simplify development. The project will be designed in a modular way to allow the interface block to be changed without needing to modify the accelertor allowing the option to utilise the higher-performance AXI4 interface in the future.
+
+\subsection{Hardware Acceleration}
+A hardware accelerator is a block of hardware designed to fully exploit the parallelism available in an algorithm. An example would be matrix multiplication. The naive method takes $\mathcal{O}(n^{3})$ time which can be optimised by more complicated algorithms to $\mathcal{O}(n^{2.3728596})$ \citep{alman2020refined}. Looking at the naive algorithm, it shows that while many operations are needed all the multiplications can be done in parallel and then added to generate the result. A hardware device would be able to do this allowing for it to be completed in constant time but would face issues with scaling.
+
+Another possible application is in image processing with local filters \cite{image_process}. A pixle value is modified based on surrounding pixels in a set window using a matrix of values that scale each pixel in the window and sum to get the resulting pixel value. This can be used for various operations such as a Gaussian blur or edge detection using a Sobel filter. This process can be performed in parallel to calculate all the multiplications in a single window simultaneously or to calculate multiple windows simultaneously. The data required by a window is not all sequential so a cache is needed to hold the unused values from the input data stream until they will be needed. This can be optimised at a hardware level or by re-ordering the input data.

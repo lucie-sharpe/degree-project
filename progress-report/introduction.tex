@@ -1,17 +1,29 @@
 \section{Introduction}
+In recent years processors have been running into limits in single-threaded processing speed \cite{cpu_clk_speed}. Overall performance has been increased by taking advantage of parallelism. This can be achieved using multiple cores to gain general parallelism or through hardware accelerators specifically designed to exploit the parallelism inherent in an algorithm. An example would be multiplying matrices. Many matrix operations involve computing many simpler calculations on the components of the matrix. These calculations are often independent and can be performed in parallel. A processor would compute these sequentially but a specific hardware implementation would be able to compute them in parallel.
 
-Write around four paragraphs establishing the context and motivating your project.
+As this project will use a hardware implementation, a platform is needed that can allow fast development and iterations on hardware designs. An FPGA (Field Programmable Gate Array) is a semiconductor device based around a matrix of configurable logic blocks \citep{whatisanfpga}. The user can define what logic function these blocks perform and how they are connected using HDL (Hardware Description Language) programming. Hardware can be designed in HDL and constructed on the FPGA without needing to manually build the circuit.
 
-\subsection{Related work}
+For this project, a processor is needed to integrate the matrix accelerator with. RISC-V is an open standard instruction set architecture that can be implemented in a variety of devices such as high-performance boards by SiFive and smaller microcontrollers such as Espressif's ESP32-C3. This adoption means that more software is available for the RISC-V instruction such as Debian's risk64 port. To implement a RISC-V core on an FPGA the Rocket Chip Generator will be used. This is an open-source SoC generator that produces synthesizable RTL for implementation on an FPGA. The FPGA being used in this project should be able to run one rocket64b core. Rocket Chip uses the Chisel HDL based on the Scala programming language. This allows for modern programming features to be used and then generate Verilog from this code. The Verilog code can then be synthesised for an FPGA.
 
-Discuss related work.
 
 \subsection{Objectives}
 
-One sentence summary of your project. Followed by a short list of concrete objectives:
+Develop a hardware accelerator for a RISC-V processor communicating over the AXI bus and compare it against a bare-metal software solution.
 
 \begin{itemize}
-    \item Objective 1
-    \item Objective 2
-    \item Objective 3
+	\item Generate a RISC-V core on an FPGA and run bare-metal code on it (Must).
+	\item Design an IP block that connects to the RISC-V's AXI bus that can send and receive data (Must).
+	\item Design an IP block that performs the hardware-accelerated functionality (Must).
+	\item Develop a driver in bare-metal C code to use the accelerator (Must).
+	\item Design and implement a test for the accelerator (Must).
+	\item Implement the test using a software approach and compare results (Should).
+	\item Implement a hardware accelerator using an alternative method of communication such as an APB bus and compare (Could)
+	\item Run Linux on the processor and make the accelerator available for use (Won't)
 \end{itemize}
+
+\subsection{Related work}
+\subsubsection{Implementation of a RISC-V Processor with Hardware Accelerator \cite{risc-v_hard_accel}}
+This paper covers the development of a hardware matrix multiplier for a RISC-V processer. They used a ZedBoard which uses the same Artix-7 FPGA chip as the Nexys A7 100T that this project uses. They use PULPino \cite{pulpino}, a 32-bit single-core RISC-V microprocessor. This project does not support the Nexys A7 100T FPGA used in our project so vivado-risk-v \cite{vivado-risk-v} is used to generate a 64-bit RISC-V core using the Rocket Chip project \cite{rocketchip}. This takes more of the resources available to the FPGA but can be reduced to 32-bit if needed as we will not be running Linux. They used the APB bus to communicate between the accelerator and PULPino microprocessor due to its interface being simpler than the AXI bus. In our project, the AXI interface will be used as it recommended by the base project and provides the option for higher-performance transfers. When tested their accelerator reduced the number of clock cycles required from 603 to 134. This is a good improvement but due to the processor having a clock speed of 5 MHz, it is unable to compete with modern processors. They encountered many errors when trying to build C programs for the PULPino and required much trial and error. The process for compiling code for our project has proved much simpler.
+
+\subsection{Matrix Multiplication Accelerator \citep{matrix_mult_accel}}
+This paper also used an accelerator for matrix multiplication but with a DE1-SoC board using a built in ARM Cortex-A9 HPS as the processer and a Cyclone V FPGA. They used parallel ports to communicate bettween the HPS and FPGA \cite{pio}. Two approaches were used based on the naive method. The first was to store the input matrices in two registeres and use massive parallelization to set the values in the output register. This allowed values to be accessed with zero cycles of latency and in parallel but is very hard to scale. The other method used M10k memory blocks to store the inputs. These only have a single read and write port limiting the ability to explot paralism so they opted to improve performace by pipelining and increasing clock speeds. Their tests showed that the HPS performed better than their accelerator but performed significantly more consistantly than the HPS. The accelertor and HPS ran a very different clock speeds, 100MHz and 925MHz. As the tests measured runtime in ms this would have heavly benifited the HPS. A clock cycle test as used in "Implementation of a RISC-V Processor with Hardware Accelerator" may have provided more comparable results.

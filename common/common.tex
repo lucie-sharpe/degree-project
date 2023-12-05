@@ -1,4 +1,3 @@
-
 \usepackage[]{geometry}
 \usepackage[latin1, utf8]{inputenc}
 \usepackage[UKenglish]{babel}
@@ -23,6 +22,27 @@
 \usepackage[T1]{fontenc}
 \usepackage{minted}
 \usepackage[export]{adjustbox}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hhline}
+\usepackage{glossaries}
+
+\definecolor{lightgray}{gray}{0.95}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+
+\lstdefinestyle{CStyle}{
+	language=C,
+	basicstyle=\small\ttfamily,
+	keywordstyle=\color{blue},
+	stringstyle=\color{red},
+	commentstyle=\color{darkgreen},
+	morecomment=[l][\color{magenta}]{\#},
+	breaklines=true,
+	postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+	showstringspaces=false,
+	tabsize=4,
+	backgroundcolor=\color{lightgray}
+}
 
 \hypersetup{
 	colorlinks=true,

@@ -15,10 +15,9 @@
 \makeatletter
 \fancypagestyle{plain}{
 	\fancyhf{}
-	\fancyhead[LE]{\thepage}
-	\fancyhead[RE]{\textit{\@author}}
-	\fancyhead[RO]{\thepage}
-	\fancyhead[LO]{\textit{\@title}}
+	%\fancyhead[R]{\textit{\@title} - \textit{\@assignment}}
+	%\fancyhead[L]{\textit{\@author}}
+	\fancyfoot[C]{\thepage}
 }
 \makeatother
 
@@ -33,6 +32,19 @@
 \input{background.tex}
 \input{progress.tex}
 \input{project-management.tex}
+
+\newpage
+
+\section*{Glossary}
+\begin{enumerate}
+	\item [ FPGA - ] Field-Programmable Gate Array, an integrated circuit designed arround configurable logic blocks allowing for custom logic functions to be defined using HDL \cite{whatisanfpga}.
+	\item [ LUT - ] Lookup Table, a digital memory element used in FPGAs to implement combinational logic.
+	\item [ HDL - ] Hardware Description Language, a language used to describe logic circuits.
+	\item [ RISC-V - ] An open standard instruction set for processors \cite{risc}.
+	\item [ APB - ] Advanced Peripheral Bus, a low-cost interface for peripheral devices \cite{APB}.
+	\item [ AXI - ]  Advanced eXtensible Interface, a protocol used to comunicate bettween the processor and IP blocks \cite{axi}.
+	\item [ Bare-metal - ] Software that runs directly on hardware without an operating system.
+\end{enumerate}
 
 \bibliographystyle{../common/plainnat}
 \bibliography{../common/bibliography}
