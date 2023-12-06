@@ -4,14 +4,21 @@
 \subsection{RISC-V processor}
 Setting up and running the vivado-risk-v \cite{vivado-risk-v} required the use of an Ubuntu 20.04 LTS environment to prevent issues with incorrect package versions being installed. The rocket64b1 core was generated successfully and the SD card was set up with a Linux environment. The \texttt{mk-sd-card} program required all partitions to be deleted from the SD card before use. The built-in flash function did not work so the Vivado GUI was used to manually program the FPGA through the hardware manager. This is only temporary and must be re-done every time the board is powered down but is sufficient for this project. Storing the bitstream on the SD card and loading it into the FPGA when powered could be investigated in the future. This used 77\% of the FPGAs LUTs limiting the space available for custom hardware (Figure \ref{fig:LUT_usage}).
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.6]{../common/vivado-risk-v Uilization.png}
 	\caption{Vivado utilisation report for risc-v processor}
 	\label{fig:LUT_usage}
 \end{figure}
 
-Putty was used to connect the to RISC-V processors serial port with a baud rate of 115200. It displayed the Linux boot sequence showing the process was successful. Unfortunately, this boot process was extremely slow due to an issue with the udev daemon hindering development with it. There are also issues installing programs with \texttt{apt} in the Linux environment.
+Putty was used to connect the to RISC-V processors serial port with a baud rate of 115200. It displayed the Linux boot sequence showing the process was successful (Figure \ref{fig:linux}). Unfortunately, this boot process was extremely slow due to an issue with the udev daemon hindering development with it. There are also issues installing programs with \texttt{apt} in the Linux environment.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{linux.png}
+	\caption{Linux Booting on FPGA}
+	\label{fig:linux}
+\end{figure}
 
 Due to the boot issue with Linux, bare-metal code proved to be a much better solution. The example hello-world bare-metal code from the vivado-risc-v project was successfully run to test the use of bare-metal code (Figure \ref{fig:helloworld}).
 
