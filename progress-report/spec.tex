@@ -37,6 +37,7 @@ The following is a comparison between two papers relevant to this project, Matri
 
 Implementation of a RISC-V Processor with Hardware Accelerator provided a more in-depth explanation of the project and more useful results. An instruction set extension implementation was not used due to the added complexity so a comparison with the results found in this paper may be useful. Matrix Multiplication Accelerator provided less valuable results as runtime is not as comparable when the hardware and software approaches are running a different clock speeds, 100MHz and 925MHz. It did provide an alternative design for the hardware implementation to improve scalability but block matrix multiplication can allow for the original design to computer larger matrices. 
 
+\newpage
 \subsection{Objectives}
 \subsubsection{Hardware-Based Matrix Operations}
 \begin{enumerate}
@@ -55,7 +56,8 @@ Implementation of a RISC-V Processor with Hardware Accelerator provided a more i
 	\item [(Could)] Test and compare an implementation that uses software parallelism.
 	\item [(Could)] If other matrix functions are implemented compare these to software and see if these extra functions are worth implementing.
 \end{enumerate}
-			
+
+\newpage			
 \subsection{Methodology}
 To develop the matrix accelerator a plan-based methodology will be used. The structure of the accelerator will be designed before implementation and then test-driven development will be used when implementing it. It takes a long time to synthesise and generate a bitstream from HDL and can be very hard to debug hardware when it is running on an FPGA. To test more efficiently the HDL it is simulated using the tools built into Vivado for Verilog or with ChiselTest for Chisel code.
 

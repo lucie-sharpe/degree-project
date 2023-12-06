@@ -4,6 +4,7 @@
 \subsection{Base project: vivado-risc-v}
 This project uses Rocket Chip to generate RISC-V processors that can be run on various FPGAs. It provides enough documentation to build a core and flash it to the board but very little else. There is some documentation on adding a peripheral device and making it available in Linux but this did not work and further research into how to add to the device tree resulted in limited information. It provides an example bare-metal file that can be used as a base for new code but there was no documentation on it.
 
+\newpage
 \subsection{AXI protocol}
 The AXI4 protocol is used to communicate with custom IP blocks \cite{axi}. There are 3 interfaces AXI4, AXI4-Lite and AXI4-Stream. AXI4 provides high-performance memory-mapped communication and AXI4-Stream allows for high-speed streaming of data. For this project, AXI4-Lite will be used as it is a simpler interface for low-throughput memory-mapped communication. This will limit the performance of the accelerator but will simplify development. The project will be designed in a modular way to allow the interface block to be changed without needing to modify the accelertor allowing the option to utilise the higher-performance AXI4 interface in the future.
 

@@ -13,7 +13,14 @@ Setting up and running the vivado-risk-v \cite{vivado-risk-v} required the use o
 
 Putty was used to connect the to RISC-V processors serial port with a baud rate of 115200. It displayed the Linux boot sequence showing the process was successful. Unfortunately, this boot process was extremely slow due to an issue with the udev daemon hindering development with it. There are also issues installing programs with \texttt{apt} in the Linux environment.
 
-Due to the boot issue with Linux, bare-metal code proved to be a much better solution. The example hello-world bare-metal code from the vivado-risc-v project was successfully run to test the use of bare-metal code.
+Due to the boot issue with Linux, bare-metal code proved to be a much better solution. The example hello-world bare-metal code from the vivado-risc-v project was successfully run to test the use of bare-metal code (Figure \ref{fig:helloworld}).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{bare-metal.png}
+	\caption{Bare-metal "hello world" Script Serial Output}
+	\label{fig:helloworld}
+\end{figure}
 
 \subsection{Adding IP}
 The Vivado development environment provides a block view of the project. The AXI interface can be found in the IO block and custom IP blocks can be connected to this to make them available over AXI. To test this pre-made AXI GPIO block \cite{xilinx_gpio} was added and connected to a new master AXI connection on the \texttt{io\_axi\_s} block. The \texttt{axi\_clk} and \texttt{axi\_reset} lines were used for the new IPs clk and reset ports (Figure \ref{fig:gpio_ip}). The output of the GPIO block was connected to the FPGA board LEDs. Under the address editor, a new base address can be assigned to the GPIO block (Figure \ref{fig:address_editor}).
