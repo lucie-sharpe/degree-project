@@ -7,7 +7,7 @@ Setting up and running the vivado-risk-v \cite{vivado-risk-v} required the use o
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.6]{../common/vivado-risk-v Uilization.png}
-	\caption{Vivado utilisation report for risc-v processor}
+	\caption{Vivado utilisation report for RISC-V processor}
 	\label{fig:LUT_usage}
 \end{figure}
 
@@ -16,7 +16,7 @@ Putty was used to connect the to RISC-V processors serial port with a baud rate 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.4]{linux.png}
-	\caption{Linux Booting on FPGA}
+	\caption{Linux booting on the FPGA}
 	\label{fig:linux}
 \end{figure}
 
@@ -25,7 +25,7 @@ Due to the boot issue with Linux, bare-metal code proved to be a much better sol
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=1]{bare-metal.png}
-	\caption{Bare-metal "hello world" Script Serial Output}
+	\caption{Bare-metal "hello world" script, serial output}
 	\label{fig:helloworld}
 \end{figure}
 
@@ -94,7 +94,7 @@ The timeline for this project has changed considerably from the specification. I
 
 The next thing to be developed is a custom AXI interface. This may be based on the code provided by Xilinx or documentation from the developer of ZipCPU \cite{axi_lite_custom}. This will be used to interface with the accelerator by transmitting 32-bit values between the bare-metal code and the hardware. This has been assigned 4 weeks due to it going through the winter holiday.
 
-Next research will be made into methods of building the hardware accelerator and a block design will be made to show how it will be structured before beginning development. Different methods should be considered to find what is best for this project. The designed accelerator can then be implemented in Verilog and connect to the AXI interface block. A bare-metal code driver will pass in the input data and validate the output. This will be used to test the functionality of the accelerator. Input data is currently planned to be stored directly in the code but if time is available it may be modified to allow data to be loaded from the SD card.
+Next research will be made into methods of building the hardware accelerator and a block design will be made to show how it will be structured before beginning development. Different methods should be considered to find what is best for this project. The designed accelerator can then be implemented in Verilog and connected to the AXI interface block. A bare-metal code driver will pass in the input data and validate the output. This will be used to test the functionality of the accelerator. Input data is currently planned to be stored directly in the code but if time is available it may be modified to allow data to be loaded from the SD card.
 
 A performance test can then be developed and run using hardware and software approaches. This can then be compared to assess the usefulness of the accelerator.
 
