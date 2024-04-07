@@ -1,0 +1,11 @@
+K. Mutthulakshmi, Megan Rui En Wee, Yew Chong Kester Wong, Joel Weijia Lai, Jin Ming Koh, U. Rajendra Acharya, Kang Hao Cheong,
+Simulating forest fire spread and fire-fighting using cellular automata,
+Chinese Journal of Physics,
+Volume 65,
+2020,
+Pages 642-650,
+ISSN 0577-9073,
+https://doi.org/10.1016/j.cjph.2020.04.001.
+(https://www.sciencedirect.com/science/article/pii/S0577907320300873)
+Abstract: In response to the transboundary haze problem in Southeast Asia, a physical model is adopted to simulate the spread and extinguishing of fire. This study is done in the context of Dumai, Indonesia, as it is one of the areas that significantly contribute to the haze problem. This model aims to provide perspectives on the persistence of forest fires despite fire-fighting efforts. While existing models using Huygens’ principle of wave propagation allow an understanding of the natural spread of fire, our model applies cellular automata to predict and analyse the effects of fire-fighting intervention strategies, with the spatial and propagation dynamics of fire considered. Cellular automata is an active area of research among physicists, and is widely used by chemists and biologists to model many types of natural phenomena. We note similarities between our model predictions and observations of real-world phenomena. Analyses on the factors that affect the spread of fire are presented, in order to understand which ones are dominant in differing situations. This provides insights on optimum conditions for fire-fighting efforts, and suggests guidelines that may be considered for fire control in future forest fires.
+Keywords: Cellular automata; Forest fire; Fire-fighting; Monte-Carlo simulation; Mathematical modelling and simulation

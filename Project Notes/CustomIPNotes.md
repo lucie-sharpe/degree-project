@@ -46,7 +46,9 @@
       end
       ```
   
-  - Under `Project IP->Review and Package` select `Re-Package IP`
+  - Under `Package IP->File Groups` click `Merge changes from IP File Group Wizard`
+  
+  - Under `Package IP->Review and Package` select `Re-Package IP`
 
 - Connecting the IP block
   
